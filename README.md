@@ -1,4 +1,5 @@
 # Ansible Role: Elixir
+[![Build Status](https://travis-ci.org/arielo/ansible-role-elixir.svg)](https://travis-ci.org/arielo/ansible-role-elixir)
 
 Installs Elixir on Ubuntu
 

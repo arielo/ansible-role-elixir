@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe file('/etc/apt/sources.list.d/packages_erlang_solutions_com_ubuntu.list') do
   it { should be_file }
-  its(:content) { should match /deb http\:\/\/packages\.erlang\-solutions.com\/ubuntu trusty contrib/ }
+  its(:content) { should match /deb http\:\/\/packages\.erlang\-solutions.com\/ubuntu precise contrib/ }
 end
 
 describe command('apt-key list') do

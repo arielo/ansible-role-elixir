@@ -1,0 +1,29 @@
+---
+language: ruby
+
+rvm:
+  - 2.2.1
+
+before_install:
+  - sudo apt-get install software-properties-common
+  - sudo apt-add-repository ppa:ansible/ansible -y
+  - sudo apt-get update -qq
+  - gem update bundler
+  - gem --version
+
+install:
+  # Install Ansible
+  - sudo apt-get install ansible -y
+
+  # Install gems
+  - bundle install
+
+script:
+  # Check syntax
+  - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
+
+  # Run playbook
+  - ansible-playbook -i tests/inventory tests/test.yml --connection=local --sudo
+
+  # Run Server specs
+  - rake spec
