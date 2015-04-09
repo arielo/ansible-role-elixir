@@ -1,16 +1,17 @@
 # Ansible Role: Elixir
 [![Build Status](https://travis-ci.org/arielo/ansible-role-elixir.svg)](https://travis-ci.org/arielo/ansible-role-elixir)
 
-Installs Elixir on Ubuntu
+Installs Elixir on Ubuntu from source
 
 Using [Serverspec](http://serverspec.org/) to validate server configuration.
 
 ##Example playbook
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
 ```
 - hosts: servers
+  vars:
+    erlang_version: '1:17.5'
+    elixir_version: 'v1.0.4'
   roles:
      - { role: arielo.elixir }
 ```

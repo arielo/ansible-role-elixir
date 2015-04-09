@@ -10,8 +10,11 @@ describe command('apt-key list') do
 end
 
 describe command('dpkg --get-selections') do
-  its(:stdout) { should match /elixir/ }
   its(:stdout) { should match /erlang\-base/ }
   its(:stdout) { should match /erlang\-crypto/ }
   its(:stdout) { should match /erlang\-syntax\-tools/ }
+end
+
+describe file('/usr/local/bin/elixir') do
+  it { should be_executable }
 end

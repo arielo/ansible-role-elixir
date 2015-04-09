@@ -5,4 +5,13 @@
 - apt_key:
     url: http://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc
 - apt: update_cache=yes
-- apt: name=elixir state=present
+- apt: name={{ item }} state=present
+  with_items:
+    - erlang={{ erlang_version }}
+    - git
+    - build-essential
+- git: repo=git://github.com/elixir-lang/elixir.git
+       dest=/tmp/elixir
+       version={{ elixir_version }}
+       accept_hostkey=true
+- shell: make clean install chdir=/tmp/elixir
