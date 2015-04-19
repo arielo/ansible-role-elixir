@@ -10,8 +10,12 @@
     - erlang={{ erlang_version }}
     - git
     - build-essential
+- apt: name=erlang={{ erlang_version }} state=present
+  register: erlang
 - git: repo=git://github.com/elixir-lang/elixir.git
        dest=/tmp/elixir
        version={{ elixir_version }}
        accept_hostkey=true
+  register: elixir
 - shell: make clean install chdir=/tmp/elixir
+  when: erlang.changed or elixir.changed
