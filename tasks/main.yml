@@ -7,7 +7,6 @@
 - apt: update_cache=yes
 - apt: name={{ item }} state=present
   with_items:
-    - erlang={{ erlang_version }}
     - git
     - build-essential
 - apt: name=erlang={{ erlang_version }} state=present
