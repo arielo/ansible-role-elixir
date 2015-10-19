@@ -1,2 +1,3 @@
 source "https://rubygems.org"
-gem 'serverspec', '2.9.1'
+ruby '2.2.3'
+gem 'serverspec', '2.24.1'
